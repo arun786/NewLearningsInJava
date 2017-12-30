@@ -38,7 +38,7 @@ interface. This is also called as Try with Resource
         Function 1 Called
         Function 2 called
         Closed called*/
-###---------------------------------------
+### ---------------------------------------
 
         import java.io.BufferedReader;
         import java.io.IOException;
@@ -86,4 +86,24 @@ interface. This is also called as Try with Resource
             }
         }
     
+## Switch Statement in java 7.
 
+Before Java 7, only enum and primitives were used in Switch cases, from Java 
+7 we can use Strings as Switch Statement.
+
+    private static void getTradeStatus(String trade) {
+        switch (trade) {
+            case "success":
+                System.out.println("Success");
+                break;
+            case "pending":
+                System.out.println("Pending");
+                break;
+            case "execute":
+                System.out.println("Execute");
+                break;
+            default:
+                System.out.println("Default");
+                break;
+        }
+    }
