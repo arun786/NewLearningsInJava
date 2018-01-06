@@ -18,11 +18,12 @@ For Example,
         }
     }
 
-Types of Inner Class
-    * Normal or regular Inner class
-    * Method Local Inner class
-    * Anonymous Inner Class
-    * Static Nested Class
+    Types of Inner Class
+            
+            * Normal or regular Inner class
+            * Method Local Inner class
+            * Anonymous Inner Class
+            * Static Nested Class
     
     
    > Normal or Regular Inner Class
