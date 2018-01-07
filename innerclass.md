@@ -26,7 +26,7 @@ For Example,
             * Static Nested Class
     
     
-   > Normal or Regular Inner Class
+## Normal or Regular Inner Class
     
     public class Outer{
         class Inner{
@@ -108,3 +108,52 @@ For Example,
             ob.m1();
         }
     }
+    
+#### Modifiers that can be applied to outer and inner class
+
+Outer class                 Innerclass 
+
+    > public                private 
+    > default               protected 
+    > final             +   static
+    > abstract
+    > strictfp
+
+## Nested Class
+
+    public class NestedInnerClass {
+    
+        public static void main(String[] args) {
+            Outer ob = new Outer();
+            Outer.A b = ob.new A();
+            Outer.A.B c = b.new B();
+    
+            ob.m1();
+            b.m2();
+            c.m3();
+        }
+    
+    }
+    
+    class Outer {
+        class A {
+            class B {
+                public void m3() {
+                    System.out.println("Nested Inner class B...");
+                }
+            }
+    
+            public void m2() {
+                System.out.println("Nested Inner class A...");
+            }
+        }
+    
+        public void m1() {
+            System.out.println("Nested Outer Class...");
+        }
+    }
+    
+    o/p will be 
+    Nested Outer Class...
+    Nested Inner class A...
+    Nested Inner class B...
