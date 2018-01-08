@@ -4,7 +4,7 @@ package ValueAndReferences;
  * when a value pass into the method a copy is passed.
  *
  */
-public class PassingValueByReferences {
+public class HowPrimitivesArePassed {
     public static void main(String[] args) {
         int localVariable = 10;
         Calculate(localVariable);
