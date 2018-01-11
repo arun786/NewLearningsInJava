@@ -86,3 +86,15 @@ same object which was created and then manipulating it.
             return records;
         }
     }
+
+### The above code is modified, we will be returning a new hashMap as below
+
+        /**
+         * @param args Wrap the map with a new Map and return the new object
+         */
+        public Map<String, Book> getBookDetailsRectified() {
+            return new HashMap<>(records);
+        }
+        
+Note : though we have a new HashMap but this can cause issues, so we will use 
+need to use unmodifiableMap

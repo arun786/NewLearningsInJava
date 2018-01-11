@@ -14,11 +14,18 @@ public class BookRecords {
     }
 
     /**
-     * @return There is an issue with this class as map is returned
+     * @return There is an issue with this method as map is returned
      * which can be modified once we get the reference
      */
     public Map<String, Book> getBookDetails() {
         return this.records;
+    }
+
+    /**
+     * @param args Wrap the map with a new Map and return the new object
+     */
+    public Map<String, Book> getBookDetailsRectified() {
+        return new HashMap<>(records);
     }
 
 
@@ -38,6 +45,18 @@ public class BookRecords {
          * from records as it was also pointing to the same object in the stack
          */
         records.forEach((k, v) -> System.out.println(k + ":" + v.getAuthor()));
+
+        System.out.println("----------------The code above is modified--------------");
+        bookBuilder();
+        referenceOfBooks = record.getBookDetailsRectified();
+
+        referenceOfBooks.forEach((k, v) -> System.out.println(k + " : " + v.getAuthor()));
+        /**
+         * Though we have cleared the reference of Books, records are not touched
+         */
+        referenceOfBooks.clear();
+        System.out.println("------------------");
+        records.forEach((k, v) -> System.out.println(k + " : " + v.getAuthor()));
     }
 
     public static Map<String, Book> bookBuilder() {
