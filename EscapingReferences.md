@@ -87,7 +87,7 @@ same object which was created and then manipulating it.
         }
     }
 
-### The above code is modified, we will be returning a new hashMap as below
+### The above code is fine tuned, we will be returning a new hashMap as below
 
         /**
          * @param args Wrap the map with a new Map and return the new object
@@ -97,4 +97,4 @@ same object which was created and then manipulating it.
         }
         
 Note : though we have a new HashMap but this can cause issues, so we will use 
-need to use unmodifiableMap
+need to use immutable map
