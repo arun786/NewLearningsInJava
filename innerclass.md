@@ -253,16 +253,59 @@ Note : if we declare inner class inside method, then we can access only static m
          * Non static Method having inner class also called method local inner class
          */
         private void m1() {
+              /**
+               * local variable cannot be accessed from inner class if
+               * they are not final or effectively final
+               */
+              int localVariable = 12;
+              final int finalLocalVariable = 18;
+      
+              class inner {
+                  private void m2() {
+                      System.out.println("We cannot access local variable if it is not initialized.." + localVariable);
+                      System.out.println("instance variable can be accessed " + instanceVariable);
+                      System.out.println("static variable can be accessed " + staticVariable);
+                      System.out.println("static final variable can be accessed " + staticFinalVariable);
+                      System.out.println("final local variable can be accessed " + finalLocalVariable);
+                  }
+              }
+              inner i = new inner();
+              i.m2();
+          }
     
-            int localVariable = 16;
-            final int finalLocalVariable = 18;
+        public static void main(String[] args) {
+            VariablesAccessedInsideMethodLocalInnerClass ob = new VariablesAccessedInsideMethodLocalInnerClass();
+            ob.m1();
+        }
+    }
+
+### method local inner class inside a static method
+
+    package InnerClass;
     
+    /**
+     * Method Local Inner class when declared inside a static method
+     */
+    public class VariablesAccessedInsideStaticMethodLocalInnerClass {
+    
+        private int instanceVariable = 10; //Cannot be accessed via a static method
+        private static int staticVariable = 12;
+        private static final int staticFinalVariable = 14;
+    
+        /**
+         * Inner class defined inside a static method
+         */
+        public static void m1() {
+    
+            int localVariable = 10;
+            final int localFinalVariable = 12;
             class inner {
-                private void m2() {
-                    System.out.println("instance variable can be accessed " + instanceVariable);
-                    System.out.println("static variable can be accessed " + staticVarible);
+                public void m2() {
+                    System.out.println("We cannot access instance variable " + localVariable);
+                    //System.out.println("Instance variable cannot be accessed "+instanceVariable);
                     System.out.println("static final variable can be accessed " + staticFinalVariable);
-                    System.out.println("final local variable can be accessed " + finalLocalVariable);
+                    System.out.println("static variable can be accessed " + staticVariable);
+                    System.out.println("local final variable can be accessed " + localFinalVariable);
                 }
             }
     
@@ -271,7 +314,7 @@ Note : if we declare inner class inside method, then we can access only static m
         }
     
         public static void main(String[] args) {
-            VariablesAccessedInsideMethodLocalInnerClass ob = new VariablesAccessedInsideMethodLocalInnerClass();
-            ob.m1();
+            VariablesAccessedInsideStaticMethodLocalInnerClass.m1();
         }
+    
     }
