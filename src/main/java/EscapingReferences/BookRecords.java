@@ -1,5 +1,6 @@
 package EscapingReferences;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,6 +27,15 @@ public class BookRecords {
      */
     public Map<String, Book> getBookDetailsRectified() {
         return new HashMap<>(records);
+    }
+
+    /**
+     * use of Collections.unmodifiableMap ensures that at runtime, unsupportedOperationException
+     * will be thrown
+     * @return
+     */
+    public Map<String, Book> getBookDetailsBestPractise() {
+        return Collections.unmodifiableMap(records);
     }
 
 
@@ -57,6 +67,17 @@ public class BookRecords {
         referenceOfBooks.clear();
         System.out.println("------------------");
         records.forEach((k, v) -> System.out.println(k + " : " + v.getAuthor()));
+
+        /**
+         * This will give Unsupported Exception
+         */
+        bookBuilder();
+        Map<String, Book> bookReferences = record.getBookDetailsBestPractise();
+        /*The below will give ...
+        java.lang.UnsupportedOperationException
+        at java.util.Collections$UnmodifiableMap.clear(Collections.java:1466)
+        at EscapingReferences.BookRecords.main(BookRecords.java:71)*/
+        bookReferences.clear();
     }
 
     public static Map<String, Book> bookBuilder() {
