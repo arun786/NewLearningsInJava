@@ -98,3 +98,27 @@ same object which was created and then manipulating it.
         
 Note : though we have a new HashMap but this can cause issues, so we will use 
 need to use immutable map
+
+if we use immutable map, 
+
+        /**
+         * use of Collections.unmodifiableMap ensures that at runtime, unsupportedOperationException
+         * will be thrown
+         * @return
+         */
+        public Map<String, Book> getBookDetailsBestPractise() {
+            return Collections.unmodifiableMap(records);
+        }
+
+we will get the below,.
+
+        /**
+         * This will give Unsupported Exception
+         */
+        bookBuilder();
+        Map<String, Book> bookReferences = record.getBookDetailsBestPractise();
+        /*The below will give ...
+        java.lang.UnsupportedOperationException
+        at java.util.Collections$UnmodifiableMap.clear(Collections.java:1466)
+        at EscapingReferences.BookRecords.main(BookRecords.java:71)*/
+        bookReferences.clear();
