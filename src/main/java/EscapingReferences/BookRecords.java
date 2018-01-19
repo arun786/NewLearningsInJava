@@ -22,9 +22,6 @@ public class BookRecords {
         return this.records;
     }
 
-    /**
-     * @param args Wrap the map with a new Map and return the new object
-     */
     public Map<String, Book> getBookDetailsRectified() {
         return new HashMap<>(records);
     }
@@ -37,7 +34,6 @@ public class BookRecords {
     public Map<String, Book> getBookDetailsBestPractise() {
         return Collections.unmodifiableMap(records);
     }
-
 
     public static void main(String[] args) {
         bookBuilder();
@@ -78,6 +74,10 @@ public class BookRecords {
         at java.util.Collections$UnmodifiableMap.clear(Collections.java:1466)
         at EscapingReferences.BookRecords.main(BookRecords.java:71)*/
         bookReferences.clear();
+
+        /**
+         * The best Solution is returning an interface.
+         */
     }
 
     public static Map<String, Book> bookBuilder() {
