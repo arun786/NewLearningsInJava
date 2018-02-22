@@ -1,7 +1,7 @@
 package General;
 
 /**
- * Overriding a static method is not possible, it becomes method hiding
+ * Overriding a st
  */
 public class OverridingAStaticMethod {
     public static void main(String[] args) {
